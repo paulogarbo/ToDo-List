@@ -1,0 +1,19 @@
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  padding: 1rem;
+  border: 0;
+  border-radius: 8px;
+  font-size: 0.875rem;
+
+  background-color: var(--blue-dark);
+
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: var(--blue);
+}
