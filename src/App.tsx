@@ -1,7 +1,8 @@
 import styles from './App.module.css'
 import { Header } from './components/Header'
 import { Input } from './components/search/Input'
-import { Empty } from './components/tasks/Empty'
+// import { Empty } from './components/tasks/Empty'
+import { Task } from './components/tasks/Task'
 import { TaskHeader } from './components/tasks/TaskHeader'
 
 export function App() {
@@ -13,6 +14,7 @@ export function App() {
         <div className={styles.tasksContent}>
           <TaskHeader/>
           <div>
+            <Task/>
             {/* <Empty/> */}
           </div>
         </div>

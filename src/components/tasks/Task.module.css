@@ -1,0 +1,9 @@
+.tasksWrapper {
+  background-color: var(--gray-500);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.removeTask {
+  background-color: transparent;
+}
