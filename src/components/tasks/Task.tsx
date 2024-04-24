@@ -4,13 +4,13 @@ import { Trash2 } from 'lucide-react'
 export function Task() {
   return (
     <div className={styles.tasksWrapper}>
-      <button>O</button>
+      <button className={styles.checkedTask}></button>
       <p>
         Integer urna interdum massa libero auctor neque turpis turpis semper. 
         Duis vel sed fames integer.
       </p>
       <button className={styles.removeTask}>
-        <Trash2/>
+        <Trash2 size={16}/>
       </button>
     </div>
   )

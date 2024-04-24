@@ -2,8 +2,36 @@
   background-color: var(--gray-500);
   border-radius: 8px;
   padding: 1rem;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+
+  margin-top: 0.75rem;
+}
+
+.checkedTask {
+  background-color: transparent;
+  border: 2px solid var(--blue);
+  border-radius: 70%;
+  padding: 0.625rem;
+
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.checkedTask:hover {
+  background-color: var(--blue-dark);
+  color: var(--blue-dark);
 }
 
 .removeTask {
-  background-color: transparent;
+  background: none;
+  border: 0;
+  color: var(--gray-300);
+
+  transition: color 0.2s;
+}
+
+.removeTask:hover {
+  color: var(--danger);
 }

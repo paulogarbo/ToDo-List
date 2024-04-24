@@ -15,6 +15,9 @@ export function App() {
           <TaskHeader/>
           <div>
             <Task/>
+            <Task/>
+            <Task/>
+            <Task/>
             {/* <Empty/> */}
           </div>
         </div>
