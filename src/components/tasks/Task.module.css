@@ -1,34 +1,79 @@
-.tasksWrapper {
+.container {
   background-color: var(--gray-500);
+  border: 1px solid var(--gray-400);
+
   border-radius: 8px;
-  padding: 1rem;
-
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-
   margin-top: 0.75rem;
 }
 
-.checkedTask {
-  background-color: transparent;
-  border: 2px solid var(--blue);
-  border-radius: 70%;
-  padding: 0.625rem;
+.container div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
 
-  transition: color 0.2s, background-color 0.2s;
+  padding: 1rem;
 }
 
-.checkedTask:hover {
+.checkBox {
+  border-radius: 70%;
+  cursor: pointer;
+  border: 2px solid var(--blue);
+  padding: 0.625rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.checkBox span {
+  display: none;
+}
+
+.checkBox:hover {
   background-color: var(--blue-dark);
-  color: var(--blue-dark);
+}
+
+.checkedBox {
+  border-radius: 70%;
+  cursor: pointer;
+  border: 2px solid var(--purple-dark);
+  padding: 0.625rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  background-color: var(--purple-dark);
+}
+
+.checkedBox span{
+  position: absolute;
+}
+
+.checkedBox .vetor {
+  width: 0.9rem;
+  height: 0.9rem;
+  font-weight: 900;
+  margin-top: 0.1rem;
+  display: grid;
+  align-items: center;
+  height: 100%; 
+  stroke-width: 3px;
+}
+
+.checkedBox:hover {
+  background-color: var(--purple);
 }
 
 .removeTask {
-  background: none;
   border: 0;
+  background-color: transparent;
   color: var(--gray-300);
 
+  cursor: pointer;
   transition: color 0.2s;
 }
 
