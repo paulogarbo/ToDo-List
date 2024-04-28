@@ -9,6 +9,7 @@
   border-radius: 8px;
   font-size: 0.875rem;
 
+  cursor: pointer;
   background-color: var(--blue-dark);
 
   transition: background-color 0.2s;

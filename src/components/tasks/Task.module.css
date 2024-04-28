@@ -68,6 +68,16 @@
   background-color: var(--purple);
 }
 
+.taskText {
+  font-size: 0.875rem;
+}
+
+.checkedTaskText {
+  font-size: 0.875rem;
+  color: var(--gray-300);
+  text-decoration: line-through;
+}
+
 .removeTask {
   border: 0;
   background-color: transparent;

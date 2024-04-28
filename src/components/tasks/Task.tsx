@@ -22,7 +22,7 @@ export function Task() {
             <Check className={styles.vetor}/>
           </span>
         </Checkbox.Root>
-        <p>
+        <p className={checked ? styles.checkedTaskText : styles.taskText}>
           Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.
         </p>
         <button className={styles.removeTask}>
