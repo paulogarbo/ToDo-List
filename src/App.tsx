@@ -14,19 +14,14 @@ interface ITasks {
 }
 
 export function App(): React.ReactElement {
-  const [tasks, setTasks] = useState<Array<ITasks>>([
-    {
-      id: uuidv4(),
-      content: "oioioioi", 
-      isComplete: true
-    },
-    {
-      id: uuidv4(),
-      content: "Olá, tudo bem?", 
-      isComplete: false
-    }
-  ])
+  const [tasks, setTasks] = useState<Array<ITasks>>([])
   const numOfTask = tasks.length
+  const numOfCompletedTask = tasks.reduce((total, currentTask) => {
+    if(currentTask.isComplete) {
+      return total + 1
+    }
+    return total
+  }, 0)
 
   function createNewTask(taskToCreate: string) {
     if(taskToCreate.length === 0) return;
@@ -51,6 +46,7 @@ export function App(): React.ReactElement {
         <div className={styles.tasksContent}>
           <TaskHeader 
             numOfTasks={numOfTask}
+            numOfCompleted={numOfCompletedTask}
           />
           {tasks.length > 0 ? 
             <div>

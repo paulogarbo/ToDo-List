@@ -1,10 +1,12 @@
+import { useState } from 'react';
 import styles from './TaskHeader.module.css'
 
 interface ITaskHeader {
   numOfTasks: number;
+  numOfCompleted: (number);
 }
 
-export function TaskHeader({numOfTasks}: ITaskHeader) {
+export function TaskHeader({numOfTasks, numOfCompleted}: ITaskHeader) {
   return (
     <header className={styles.headerContent}>
       <aside>
@@ -13,7 +15,7 @@ export function TaskHeader({numOfTasks}: ITaskHeader) {
       </aside>
       <aside>
         <p>Concluídas</p>
-        <span>0</span>
+        <span>{numOfTasks == 0 ? 0 : `${numOfCompleted} de ${numOfTasks}`}</span>
       </aside>
     </header>
   )

@@ -12,19 +12,15 @@ export function Task({content, isComplete}: ITaskProps) {
   const [ checked, setChecked ] = useState(isComplete)
 
   function handleChangeChecked() {
-    if (checked) {
-      setChecked(false)
-      isComplete = true
-      return
-    }
-    setChecked(true)
-    isComplete = false
+    setChecked(!checked)
   }
 
   return (
     <section className={styles.container}>
       <div>
-        <Checkbox.Root className={checked ? styles.checkedBox : styles.checkBox} onClick={handleChangeChecked}>
+        <Checkbox.Root 
+          className={checked ? styles.checkedBox : styles.checkBox} 
+          onCheckedChange={handleChangeChecked}>
           <span>
             <Check className={styles.vetor}/>
           </span>
