@@ -38,6 +38,14 @@ export function App(): React.ReactElement {
     }
   }
 
+  function handleTaskCompletion(key: string, newCheckedState: boolean) {
+    setTasks(tasks =>
+      tasks.map(task =>
+        task.id === key ? { ...task, isComplete: newCheckedState } : task
+      )
+    )
+  }
+
   return (
     <section className={styles.contentWrapper}>
       <Header/>
@@ -54,8 +62,10 @@ export function App(): React.ReactElement {
                 return (
                   <Task
                     key={task.id}
+                    id={task.id}
                     content={task.content}
                     isComplete={task.isComplete}
+                    onCompleteTask={handleTaskCompletion}
                   />
                 )
               })}

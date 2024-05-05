@@ -4,15 +4,18 @@ import { Trash2, Check } from 'lucide-react'
 import * as Checkbox from '@radix-ui/react-checkbox'
 
 interface ITaskProps {
+  id: string;
   content: string;
   isComplete: boolean;
+  onCompleteTask: (id: string, checked: boolean) => void;
 }
 
-export function Task({content, isComplete}: ITaskProps) {
+export function Task({id, content, isComplete, onCompleteTask}: ITaskProps) {
   const [ checked, setChecked ] = useState(isComplete)
 
   function handleChangeChecked() {
     setChecked(!checked)
+    onCompleteTask(id, checked)
   }
 
   return (
