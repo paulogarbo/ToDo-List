@@ -4,6 +4,9 @@
 
   border-radius: 8px;
   margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .container div {
@@ -80,6 +83,7 @@
 
 .removeTask {
   border: 0;
+  padding-right: 1rem;
   background-color: transparent;
   color: var(--gray-300);
 

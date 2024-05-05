@@ -2,13 +2,18 @@ import styles from './Input.module.css'
 import { Button } from './Button'
 import { useRef } from 'react'
 
-export function Input(): React.ReactElement{
+interface IInputProps {
+  onCreateTask: (task: string) => void;
+}
+
+export function Input({onCreateTask}: IInputProps): React.ReactElement{
   const inputRef = useRef<HTMLInputElement | null>(null)
 
   const handleSubmitTask = (event: React.FormEvent) => {
     event.preventDefault()
-    if(inputRef.current?.value == null) return;
-    
+    if(inputRef.current?.value == null) return; 
+    onCreateTask(inputRef.current.value)
+    inputRef.current.value = ""
   }
 
   return (

@@ -1,17 +1,24 @@
 import { useState } from 'react'
 import styles from './Task.module.css'
-import { Trash2, Check, Bold } from 'lucide-react'
+import { Trash2, Check } from 'lucide-react'
 import * as Checkbox from '@radix-ui/react-checkbox'
 
-export function Task() {
-  const [ checked, setChecked ] = useState(false)
+interface ITaskProps {
+  content: string;
+  isComplete: boolean;
+}
+
+export function Task({content, isComplete}: ITaskProps) {
+  const [ checked, setChecked ] = useState(isComplete)
 
   function handleChangeChecked() {
     if (checked) {
       setChecked(false)
+      isComplete = true
       return
     }
     setChecked(true)
+    isComplete = false
   }
 
   return (
@@ -23,12 +30,12 @@ export function Task() {
           </span>
         </Checkbox.Root>
         <p className={checked ? styles.checkedTaskText : styles.taskText}>
-          Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.
+          {content}
         </p>
+      </div>
         <button className={styles.removeTask}>
           <Trash2 size={18}/>
         </button>
-      </div>
     </section>
   )
 }
