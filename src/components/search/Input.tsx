@@ -1,12 +1,24 @@
 import styles from './Input.module.css'
 import { Button } from './Button'
+import { useRef } from 'react'
 
-export function Input() {
+export function Input(): React.ReactElement{
+  const inputRef = useRef<HTMLInputElement | null>(null)
+
+  const handleSubmitTask = (event: React.FormEvent) => {
+    event.preventDefault()
+    if(inputRef.current?.value == null) return;
+    
+  }
+
   return (
-    <div className={styles.addTaskWrapper}>
+    <form onSubmit={handleSubmitTask} className={styles.addTaskWrapper}>
       <label className={styles.srOnly}>Adicione uma nova tarefa</label>
-      <input type="text" placeholder='Adicione uma nova tarefa' />
-      <Button/>
-    </div>
+      <input 
+        type="text"
+        ref={inputRef}
+        placeholder='Adicione uma nova tarefa' />
+      <Button />
+    </form>
   )
 }
