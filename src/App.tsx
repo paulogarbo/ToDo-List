@@ -72,7 +72,8 @@ export function App(): React.ReactElement {
             numOfTasks={numOfTask}
             numOfCompleted={numOfCompletedTask}
           />
-          {tasks.length > 0 ? 
+
+          {!(tasks.length == 0) && 
             <div>
               {tasks.map(task => {
                 return (
@@ -86,7 +87,9 @@ export function App(): React.ReactElement {
                   />
                 )
               })}
-            </div> : <Empty/>}
+            </div>}
+            
+          {tasks.length == 0 && <Empty/>}
         </div>
       </div>
     </section>

@@ -24,7 +24,7 @@ export function Task({id, content, isComplete, onCompleteTask, onDelete}: ITaskP
 
   useEffect(() => {
     onCompleteTask(id, checked)
-  }, [checked])
+  }, [checked, id, onCompleteTask])
 
   return (
     <section className={styles.container}>
