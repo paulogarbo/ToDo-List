@@ -62,7 +62,6 @@ export function App(): React.ReactElement {
     })
     setTasks(taskWithoutOne)
   }
-
   return (
     <section className={styles.contentWrapper}>
       <Header/>
