@@ -1,5 +1,5 @@
 import styles from './App.module.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Header } from './components/Header'
 import { Input } from './components/search/Input'
 import { Task } from './components/tasks/Task'
@@ -14,7 +14,9 @@ interface ITasks {
 }
 
 export function App(): React.ReactElement {
-  const [tasks, setTasks] = useState<Array<ITasks>>([])
+  const taskJson = localStorage.getItem('Tasks')
+  const storedTasks = taskJson !== null ? JSON.parse(taskJson) : []
+  const [tasks, setTasks] = useState<Array<ITasks>>(storedTasks)
   const numOfTask = tasks.length
   const numOfCompletedTask = tasks.reduce((total, currentTask) => {
     if(currentTask.isComplete === true) {
@@ -22,6 +24,10 @@ export function App(): React.ReactElement {
     }
     return total
   }, 0)
+
+  useEffect(() => {
+    localStorage.setItem("Tasks", JSON.stringify(tasks))
+  }, [tasks])
 
   function createNewTask(taskToCreate: string) {
     if(taskToCreate.length === 0) return;
