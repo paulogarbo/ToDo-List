@@ -6,7 +6,7 @@ export function Button(): React.ReactElement {
     <button 
       className={styles.submit}>
         <strong>Criar</strong>
-        <CirclePlus size={16 }/>
+        <CirclePlus size={16}/>
     </button>
   )
 }

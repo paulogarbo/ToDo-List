@@ -17,7 +17,7 @@ export function App(): React.ReactElement {
   const [tasks, setTasks] = useState<Array<ITasks>>([])
   const numOfTask = tasks.length
   const numOfCompletedTask = tasks.reduce((total, currentTask) => {
-    if(currentTask.isComplete) {
+    if(currentTask.isComplete === true) {
       return total + 1
     }
     return total
@@ -27,23 +27,34 @@ export function App(): React.ReactElement {
     if(taskToCreate.length === 0) return;
 
     const isNewTaskExists = tasks.some(tasks => tasks.content === taskToCreate)
-    if(!isNewTaskExists) {
-      const newTaskObj: ITasks = {
-        id: uuidv4(),
-        content: taskToCreate, 
-        isComplete: false
-      }
-
-      setTasks([...tasks, newTaskObj])
+    if(isNewTaskExists) {
+      alert("Task já cadastrada.")
+      return
     }
+    const newTaskObj: ITasks = {
+      id: uuidv4(),
+      content: taskToCreate, 
+      isComplete: false
+    }
+
+    setTasks([...tasks, newTaskObj])
   }
 
-  function handleTaskCompletion(key: string, newCheckedState: boolean) {
-    setTasks(tasks =>
-      tasks.map(task =>
-        task.id === key ? { ...task, isComplete: newCheckedState } : task
-      )
-    )
+  function handleTaskCompletion(id: string, newCheckedState: boolean) {
+    const modifiedTasks = tasks.map(obj => {
+      if(obj.id === id) {
+        return {...obj, isComplete: newCheckedState}
+      }
+      return obj
+    })   
+    setTasks(modifiedTasks)
+  }
+
+  function deleteTask(id: string) {
+    const taskWithoutOne = tasks.filter((obj) => {
+      return obj.id !== id
+    })
+    setTasks(taskWithoutOne)
   }
 
   return (
@@ -66,6 +77,7 @@ export function App(): React.ReactElement {
                     content={task.content}
                     isComplete={task.isComplete}
                     onCompleteTask={handleTaskCompletion}
+                    onDelete={deleteTask}
                   />
                 )
               })}

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './Task.module.css'
 import { Trash2, Check } from 'lucide-react'
 import * as Checkbox from '@radix-ui/react-checkbox'
@@ -8,15 +8,23 @@ interface ITaskProps {
   content: string;
   isComplete: boolean;
   onCompleteTask: (id: string, checked: boolean) => void;
+  onDelete: (id: string) => void;
 }
 
-export function Task({id, content, isComplete, onCompleteTask}: ITaskProps) {
+export function Task({id, content, isComplete, onCompleteTask, onDelete}: ITaskProps) {
   const [ checked, setChecked ] = useState(isComplete)
 
-  function handleChangeChecked() {
+  function handleChangeChecked(){
     setChecked(!checked)
-    onCompleteTask(id, checked)
   }
+
+  function handleDeleteTask(){
+    onDelete(id)
+  }
+
+  useEffect(() => {
+    onCompleteTask(id, checked)
+  }, [checked])
 
   return (
     <section className={styles.container}>
@@ -32,7 +40,7 @@ export function Task({id, content, isComplete, onCompleteTask}: ITaskProps) {
           {content}
         </p>
       </div>
-        <button className={styles.removeTask}>
+        <button onClick={handleDeleteTask} className={styles.removeTask}>
           <Trash2 size={18}/>
         </button>
     </section>
