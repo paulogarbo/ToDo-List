@@ -1,9 +1,8 @@
-<div style="display: flex; align-items: center; justify-content: space-between;">
-    <h1>ToDo List</h1>
-    <a href="https://to-do-list-ecru-five.vercel.app/">
-        <img src="./src/assets/Logo.svg" alt="ToDo Logo" title="ToDo" height="40" />
-    </a>
-</div>
+<a href="https://to-do-list-ecru-five.vercel.app/">
+    <img src="./src/assets/Logo.svg" alt="ToDo logo" title="ToDo App" align="right" height="60" />
+</a>
+
+# ToDo-List
 
 :star: Por favor, favorite este repositório se achou útil - isso me motiva a continuar.
 
