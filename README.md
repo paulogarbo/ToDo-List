@@ -1,5 +1,5 @@
 <a href="https://to-do-list-ecru-five.vercel.app/">
-    <img src="./src/assets/Logo.svg" alt="ToDo logo" title="ToDo App" align="right" height="40" />
+    <img src="./src/assets/Logo.svg" alt="ToDo logo" title="ToDo App" align="right" height="60" />
 </a>
 
 # ToDo-List
