@@ -48,6 +48,7 @@ Para este projeto, você precisará do Node.js e do npm instalados em seu ambien
 - Marcar tarefas como concluídas.
 - Excluir tarefas.
 - Armazenamento em cache das tarefas.
+- Responsividade.
 
 ## Licença
 
